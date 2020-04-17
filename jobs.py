@@ -1,14 +1,15 @@
 import os
 from pymongo import MongoClient
 import pymongo
+import requests
 import datetime
 import config
 
-mc = MongoClient(
-    "mongodb+srv://{}:{}@{}/test?retryWrites=true".format(
-        config.MONGO_USER, config.MONGO_PW, config.MONGO_HOST
-    )
-)
+# mc = MongoClient(
+#     "mongodb+srv://{}:{}@{}/test?retryWrites=true".format(
+#         config.MONGO_USER, config.MONGO_PW, config.MONGO_HOST
+#     )
+# )
 
 MONGO_JOBS = mc.loser.jobs
 
@@ -50,3 +51,8 @@ def finish_job(mongo_job):
         },
         upsert=False,
     )
+
+
+def get_assigned():
+    requests.get()
+
